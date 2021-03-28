@@ -2,17 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ContentIcon from './ContentIcon';
+import { CalendarIconTheme } from '../config';
 
-const defaultOptions = {
+export interface CalendarOptions {
+  locale: Parameters<Date['toLocaleString']>[0];
+  header: Intl.DateTimeFormatOptions;
+  value: Intl.DateTimeFormatOptions;
+  footer: Intl.DateTimeFormatOptions;
+}
+
+export const defaultOptions: CalendarOptions = {
   header: { weekday: 'long' },
   footer: { month: 'long' },
   value: { day: '2-digit' },
   locale: [],
 };
 
-const formatDate = (date, locale, formatOptions) => {
+export type FormatFunction = (
+  date: Date,
+  locale: CalendarOptions['locale'],
+  formatOptions: Intl.DateTimeFormatOptions
+) => string;
+
+const formatDate: FormatFunction = (date, locale, formatOptions) => {
+  const d = new Date();
+  const a = d.toLocaleString();
   return date.toLocaleDateString(locale, formatOptions);
 };
+
+export interface CalendarIconProps {
+  date: Date;
+  theme: CalendarIconTheme;
+  options: CalendarOptions;
+}
 
 const CalendarIcon = ({ date, theme, options }) => (
   <ContentIcon
