@@ -1,9 +1,9 @@
-import styled from '../styled'
-import { themedConfig } from '../config'
+import styled from '../styled';
+import { themedConfig } from '../config';
 
 const IconDiv = styled('div')({
   fontSize: '0.7em',
-  backgroundColor: props => themedConfig(props.theme).backgroundColor,
+  backgroundColor: (props) => themedConfig(props.theme).backgroundColor,
   height: '8em',
   width: '8em',
   borderRadius: '0.7em',
@@ -12,6 +12,6 @@ const IconDiv = styled('div')({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'space-between',
-})
+});
 
-export default IconDiv
+export default IconDiv;

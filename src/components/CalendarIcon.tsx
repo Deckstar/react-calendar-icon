@@ -1,20 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import ContentIcon from './ContentIcon'
+import ContentIcon from './ContentIcon';
 
 const defaultOptions = {
   header: { weekday: 'long' },
   footer: { month: 'long' },
   value: { day: '2-digit' },
-  locale: []
-}
+  locale: [],
+};
 
 const formatDate = (date, locale, formatOptions) => {
-  return date.toLocaleDateString(locale, formatOptions)
-}
+  return date.toLocaleDateString(locale, formatOptions);
+};
 
-const CalendarIcon = ({ date, theme, options }) =>
+const CalendarIcon = ({ date, theme, options }) => (
   <ContentIcon
     header={
       options
@@ -32,11 +32,12 @@ const CalendarIcon = ({ date, theme, options }) =>
         : formatDate(date, defaultOptions.locale, defaultOptions.footer)
     }
   />
+);
 
 CalendarIcon.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
   theme: PropTypes.object,
-  options: PropTypes.object
-}
+  options: PropTypes.object,
+};
 
-export default CalendarIcon
+export default CalendarIcon;
