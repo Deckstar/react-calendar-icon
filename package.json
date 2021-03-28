@@ -4,10 +4,9 @@
   "description": "A customizable date badge component in the shape of a familiar calendar icon ",
   "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "scripts": {
-    "build": "npm run build:lib && npm run build:dist",
-    "build:lib": "babel --extensions \".ts,.tsx\" src -d lib",
-    "build:dist": "tsc",
+    "build": "tsc",
     "lint": "eslint src",
     "lint:watch": "esw -w src/**",
     "test": "npm run test:web && npm run test:size",
