@@ -1,8 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import ContentIcon from './ContentIcon'
+import React from 'react';
+import ContentIcon from './ContentIcon';
+import renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<ContentIcon />, div)
-})
+  const div = renderer
+    .create(<ContentIcon header="" footer="" value="" />)
+    .toJSON();
+  expect(div).toMatchSnapshot();
+});

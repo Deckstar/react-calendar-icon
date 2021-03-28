@@ -7,7 +7,7 @@ import ValueDiv from './ValueDiv';
 import { CalendarIconProps, FormatFunction } from './CalendarIcon';
 
 export interface ContentIconProps {
-  theme: CalendarIconProps['theme'];
+  theme?: CalendarIconProps['theme'];
   header: ReturnType<FormatFunction>;
   value: ReturnType<FormatFunction>;
   footer: ReturnType<FormatFunction>;

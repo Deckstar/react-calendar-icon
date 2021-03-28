@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import HeaderDiv from './HeaderDiv'
+import React from 'react';
+import HeaderDiv from './HeaderDiv';
+import renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<HeaderDiv />, div)
-})
+  const div = renderer.create(<HeaderDiv />).toJSON();
+  expect(div).toMatchSnapshot();
+});

@@ -4,6 +4,7 @@ import json from '@rollup/plugin-json'
 import babel from 'rollup-plugin-babel'
 import { uglify } from 'rollup-plugin-uglify'
 import visualizer from 'rollup-plugin-visualizer'
+import typescript from 'rollup-plugin-typescript'
 
 const prod = process.env.NODE_ENV === 'production'
 const mode = prod ? 'production' : 'development'
@@ -15,6 +16,7 @@ const plugins = [
   commonjs({
     ignoreGlobal: true,
   }),
+  typescript(),
   babel(),
   json()
 ]

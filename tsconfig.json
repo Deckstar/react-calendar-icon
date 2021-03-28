@@ -3,7 +3,6 @@
     "incremental": true,
     "noEmitOnError": true,
     "allowJs": true,
-    "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "rootDir": "src",
@@ -11,6 +10,6 @@
     "jsx": "react",
     "strictNullChecks": true
   },
-  "exclude": ["./demo", "./lib", "./rollup.config.js"],
+  "include": ["./src"],
   "parser": "@typescript-eslint/parser"
 }

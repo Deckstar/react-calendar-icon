@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import IconDiv from './IconDiv'
+import React from 'react';
+import IconDiv from './IconDiv';
+import renderer from 'react-test-renderer';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<IconDiv />, div)
-})
+  const div = renderer.create(<IconDiv />).toJSON();
+  expect(div).toMatchSnapshot();
+});
