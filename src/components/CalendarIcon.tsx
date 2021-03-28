@@ -5,13 +5,13 @@ import ContentIcon from './ContentIcon';
 import { CalendarIconTheme } from '../config';
 
 export interface CalendarOptions {
-  locale: Parameters<Date['toLocaleString']>[0];
-  header: Intl.DateTimeFormatOptions;
-  value: Intl.DateTimeFormatOptions;
-  footer: Intl.DateTimeFormatOptions;
+  locale?: Parameters<Date['toLocaleString']>[0];
+  header?: Intl.DateTimeFormatOptions;
+  value?: Intl.DateTimeFormatOptions;
+  footer?: Intl.DateTimeFormatOptions;
 }
 
-export const defaultOptions: CalendarOptions = {
+export const defaultOptions: Required<CalendarOptions> = {
   header: { weekday: 'long' },
   footer: { month: 'long' },
   value: { day: '2-digit' },
@@ -30,30 +30,40 @@ const formatDate: FormatFunction = (date, locale, formatOptions) => {
 
 export interface CalendarIconProps {
   date: Date;
-  theme: CalendarIconTheme;
-  options: CalendarOptions;
+  theme?: CalendarIconTheme;
+  options?: CalendarOptions;
 }
 
-const CalendarIcon = ({ date, theme, options }) => (
-  <ContentIcon
-    theme={theme}
-    header={
-      options
-        ? formatDate(date, options.locale, options.header)
-        : formatDate(date, defaultOptions.locale, defaultOptions.header)
-    }
-    value={
-      options
-        ? formatDate(date, options.locale, options.value)
-        : formatDate(date, defaultOptions.locale, defaultOptions.value)
-    }
-    footer={
-      options
-        ? formatDate(date, options.locale, options.footer)
-        : formatDate(date, defaultOptions.locale, defaultOptions.footer)
-    }
-  />
-);
+const CalendarIcon = ({ date, theme, options }: CalendarIconProps) => {
+  const { locale, header, value, footer } = options || {};
+  const {
+    locale: defaultLocaleOption,
+    header: defaultHeaderOption,
+    value: defaultValueOption,
+    footer: defaultFooterOption,
+  } = defaultOptions;
+
+  return (
+    <ContentIcon
+      theme={theme}
+      header={formatDate(
+        date,
+        locale || defaultLocaleOption,
+        header || defaultHeaderOption
+      )}
+      value={formatDate(
+        date,
+        locale || defaultLocaleOption,
+        value || defaultValueOption
+      )}
+      footer={formatDate(
+        date,
+        locale || defaultLocaleOption,
+        footer || defaultFooterOption
+      )}
+    />
+  );
+};
 
 CalendarIcon.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,

@@ -8,7 +8,9 @@
     "esModuleInterop": true,
     "rootDir": "src",
     "target": "es5",
-    "jsx": "react"
+    "jsx": "react",
+    "strictNullChecks": true
   },
-  "exclude": ["./demo", "./lib", "./rollup.config.js"]
+  "exclude": ["./demo", "./lib", "./rollup.config.js"],
+  "parser": "@typescript-eslint/parser"
 }
