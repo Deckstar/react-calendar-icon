@@ -3,8 +3,9 @@
   "version": "0.9.4",
   "description": "A customizable date badge component in the shape of a familiar calendar icon ",
   "type": "module",
-  "main": "dist/index.js",
   "module": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "lint": "eslint src",
@@ -14,7 +15,6 @@
     "test:size": "bundlesize",
     "prepublish": "npm run build"
   },
-  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kkostov/react-calendar-icon.git"
