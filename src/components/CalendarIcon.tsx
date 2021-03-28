@@ -25,8 +25,6 @@ export type FormatFunction = (
 ) => string;
 
 const formatDate: FormatFunction = (date, locale, formatOptions) => {
-  const d = new Date();
-  const a = d.toLocaleString();
   return date.toLocaleDateString(locale, formatOptions);
 };
 
@@ -38,6 +36,7 @@ export interface CalendarIconProps {
 
 const CalendarIcon = ({ date, theme, options }) => (
   <ContentIcon
+    theme={theme}
     header={
       options
         ? formatDate(date, options.locale, options.header)
@@ -58,8 +57,6 @@ const CalendarIcon = ({ date, theme, options }) => (
 
 CalendarIcon.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired,
-  theme: PropTypes.object,
-  options: PropTypes.object,
 };
 
 export default CalendarIcon;

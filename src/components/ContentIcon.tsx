@@ -5,26 +5,21 @@ import IconDiv from './IconDiv';
 import HeaderDiv from './HeaderDiv';
 import FooterDiv from './FooterDiv';
 import ValueDiv from './ValueDiv';
-import { FormatFunction } from './CalendarIcon';
+import { CalendarIconProps, FormatFunction } from './CalendarIcon';
 
 export interface ContentIconProps {
+  theme: CalendarIconProps['theme'];
   header: ReturnType<FormatFunction>;
   value: ReturnType<FormatFunction>;
   footer: ReturnType<FormatFunction>;
 }
 
-const ContentIcon = ({ header, value, footer }: ContentIconProps) => (
-  <IconDiv>
-    <HeaderDiv>{header}</HeaderDiv>
+const ContentIcon = ({ theme, header, value, footer }: ContentIconProps) => (
+  <IconDiv theme={theme}>
+    <HeaderDiv theme={theme}>{header}</HeaderDiv>
     <ValueDiv>{value}</ValueDiv>
-    <FooterDiv>{footer}</FooterDiv>
+    <FooterDiv theme={theme}>{footer}</FooterDiv>
   </IconDiv>
 );
-
-ContentIcon.propTypes = {
-  header: PropTypes.any,
-  footer: PropTypes.any,
-  value: PropTypes.any,
-};
 
 export default ContentIcon;
