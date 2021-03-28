@@ -1,24 +1,20 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "standard",
-    "standard-react",
-    "plugin:react/recommended"
-  ],
+  "extends": ["standard", "standard-react", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
       "impliedStrict": true,
       "jsx": true,
-      "experimentalObjectRestSpread": true,
+      "experimentalObjectRestSpread": true
     }
   },
   "env": {
     "jest": true
   },
   "rules": {
-    "comma-dangle": "off",
     "quote-props": "off",
+    "single-quote": true
   }
 }
