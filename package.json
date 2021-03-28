@@ -8,7 +8,7 @@
   "scripts": {
     "build": "npm run build:lib && npm run build:dist",
     "build:lib": "babel --extensions \".ts,.tsx\" src -d lib",
-    "build:dist": "rollup -c && cross-env NODE_ENV=production rollup -c",
+    "build:dist": "tsc",
     "lint": "eslint src",
     "lint:watch": "esw -w src/**",
     "test": "npm run test:web && npm run test:size",
@@ -16,6 +16,7 @@
     "test:size": "bundlesize",
     "prepublish": "npm run build"
   },
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kkostov/react-calendar-icon.git"
@@ -50,9 +51,6 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.13.0",
-    "@rollup/plugin-commonjs": "^11.0.0",
-    "@rollup/plugin-json": "^4.0.1",
-    "@rollup/plugin-node-resolve": "^6.0.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
     "@types/jest": "^26.0.22",
@@ -76,11 +74,6 @@
     "jest": "^24.9.0",
     "jest-styled-components": "^7.0.3",
     "react-test-renderer": "^16.14.0",
-    "rollup": "^1.27.14",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-typescript": "^1.0.1",
-    "rollup-plugin-uglify": "^6.0.4",
-    "rollup-plugin-visualizer": "^3.3.1",
     "ts-essentials": "^7.0.1",
     "ts-jest": "^24.3.0",
     "typescript": "^4.2.3"
