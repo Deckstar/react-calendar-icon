@@ -3,8 +3,7 @@
   "version": "0.9.4",
   "description": "A customizable date badge component in the shape of a familiar calendar icon ",
   "type": "module",
-  "main": "dist/react-calendar-icon.cjs.js",
-  "module": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "npm run build:lib && npm run build:dist",
     "build:lib": "babel --extensions \".ts,.tsx\" src -d lib",
@@ -16,7 +15,7 @@
     "test:size": "bundlesize",
     "prepublish": "npm run build"
   },
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kkostov/react-calendar-icon.git"
@@ -42,7 +41,6 @@
   "files": [
     "CODE_OF_CONDUCT.md",
     "dist",
-    "lib",
     "src"
   ],
   "devDependencies": {
